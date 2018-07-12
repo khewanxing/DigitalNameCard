@@ -7,6 +7,7 @@ namespace DigitalNameCard2
 {
     public class NameCard
     {
+        
         public static NameCard CreateCardDesign(int number)
         {
             if (number == 0)
@@ -68,6 +69,11 @@ namespace DigitalNameCard2
             Email.Text = email;
             Address.Text = address;
 
+            ShowCard(root,background);
+        }
+
+        public void ShowCard(Grid root, Image background)
+        {
             root.Children.Clear();
             root.Children.Add(Name.Label);
             root.Children.Add(Title.Label);

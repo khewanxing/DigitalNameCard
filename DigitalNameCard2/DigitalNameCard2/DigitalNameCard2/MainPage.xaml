@@ -4,10 +4,16 @@
              xmlns:local="clr-namespace:DigitalNameCard2"
              x:Class="DigitalNameCard2.MainPage">
 
-    <Grid>
-        <Image x:Name="background" Aspect="AspectFill" />
-        <Grid x:Name="root">
+    <StackLayout >
+        <Button x:Name="myButton" Clicked="myButton_Clicked" HeightRequest="100" Text="myButton"></Button>
+        <Image x:Name="background" Aspect="AspectFill" IsVisible="False" >
+          
+        </Image>
+        <Grid x:Name="root" IsVisible="False" >
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ImageTapped"/>
+            </Grid.GestureRecognizers>
         </Grid>
-    </Grid>
+    </StackLayout>
 
 </ContentPage>
