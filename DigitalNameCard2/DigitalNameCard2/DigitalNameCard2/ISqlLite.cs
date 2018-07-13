@@ -6,7 +6,8 @@ using SQLitePCL;
 
 namespace DigitalNameCard2
 {
-    public class CardDatabase
+    public interface ISqlLite
     {
+        SQLiteConnection GetConnection();
     }
 }
