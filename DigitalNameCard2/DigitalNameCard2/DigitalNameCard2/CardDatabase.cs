@@ -14,11 +14,15 @@ namespace DigitalNameCard2
         public CardDatabase()
         {
             dbConnection = DependencyService.Get<ISqlLite>().GetConnection();
-            dbConnection.DropTable<CardInfo>();
+           // dbConnection.DropTable<CardInfo>();
             dbConnection.CreateTable<CardInfo>(CreateFlags.None);
 
             //CardInfo c = new CardInfo();
             //c.Name = "Sulaeman Santoso";
+            //c.Title = "Programmer extraordinaire";
+            //c.PhoneNumber = "082240062800";
+            //c.Website = "sulaeman.santoso.it.maranatha.edu";
+            //c.Email = "vatsuko@gmail.com";
             //c.Address = "Jl ABC no 10";
             //dbConnection.Insert(c);
         }

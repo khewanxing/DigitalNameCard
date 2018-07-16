@@ -59,25 +59,13 @@ namespace DigitalNameCard2
             App.cDBUtil = new CardDatabase();
             //loading info from db3 into card
             List<CardInfo> result = App.cDBUtil.GetAllCard();
-
-            //if (result.Count > 0)
-            //{
-            //    //do somethign
-            //    result[0].Email = "vatsuko@gmail.com";
-            //    result[0].PhoneNumber = "082240062800";
-            //    result[0].Title = "Lecturer - Entrepreneur";
-            //    result[0].Website = "vatsuko@gmail.com";
-            //    int hasil = App.cDBUtil.UpdateCard(result[0]);
-
-            //    hasil = hasil + 1;
-            //}
             //enter card info to class and to extra info
             
             //visualize card
 
             NameCard card = NameCard.CreateCardDesign(0);
-             //  card.SetNameCard(root, background, result[0]);
-            card.SetNameCard(root, background, "John Doe", "- Main Photographer -", "www.johndoephotography.com", "+6281233344455", "john.doe@johndoephotography.com", "Jl. Dago 999, Bandung, Indonesia");
+            card.SetNameCard(root, background, result[0]);
+           // card.SetNameCard(root, background, "John Doe", "- Main Photographer -", "www.johndoephotography.com", "+6281233344455", "john.doe@johndoephotography.com", "Jl. Dago 999, Bandung, Indonesia");
         }
 
  
