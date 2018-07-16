@@ -10,6 +10,9 @@ namespace DigitalNameCard2
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public String jsonContent{ get;set;}
+        public String Nama { get; set; }
+        public String Address { get; set; }
+        public String Phone { get; set; }
+        public String ExtraInfo{ get;set;}
     }
 }

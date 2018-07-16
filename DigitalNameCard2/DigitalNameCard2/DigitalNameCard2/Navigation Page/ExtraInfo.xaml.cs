@@ -12,9 +12,12 @@ namespace DigitalNameCard2
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ExtraInfo : ContentPage
 	{
+             
 		public ExtraInfo (CardInfo c)
 		{
 			InitializeComponent ();
+            //enter info 
+            
 		}
 	}
 }

@@ -6,6 +6,9 @@
 
     <StackLayout >
         <Button x:Name="myButton" Clicked="myButton_Clicked" HeightRequest="100" Text="myButton"></Button>
+        <Label x:Name="JustCheckin" Text="Xamarin form rulez"></Label>
+        <Label x:Name="Data" Text=""></Label>
+
         <Image x:Name="background" Aspect="AspectFill" IsVisible="False" >
           
         </Image>

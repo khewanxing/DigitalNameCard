@@ -13,6 +13,7 @@ namespace DigitalNameCard2
         public String Email { get; set; }
         public String Address { get; set; }
 
+        /*
 
         public CardInfo(string name, string  title, string website, string phonenumber, string email, string address)
         {
@@ -34,6 +35,6 @@ namespace DigitalNameCard2
             Email = email;
             Address = address;
             ExtraInfo = extraInfo;
-        }
+        }*/
     }
 }

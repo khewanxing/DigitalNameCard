@@ -56,9 +56,15 @@ namespace DigitalNameCard2
             //root.Children.Add(g);
             #endregion
 
-
+            App.cDBUtil = new CardDatabase();
             //loading info from db3 into card
+            List<CardInfo> result = App.cDBUtil.GetAllCard();
 
+            if (result.Count > 0)
+            {
+                //do somethign
+                result[0].Email = "vatsuko@gmail.com";
+            }
             //enter card info to class and to extra info
             
             //visualize card

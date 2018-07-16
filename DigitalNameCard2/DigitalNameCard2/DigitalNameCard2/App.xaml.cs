@@ -9,13 +9,16 @@ namespace DigitalNameCard2
 {
 	public partial class App : Application
 	{
-
+        public static CardDatabase cDBUtil;
 
 		public App ()
-		{
-			InitializeComponent();
+        {
+            MainPage = new DigitalNameCard2.MainPage();
+            cDBUtil = new CardDatabase();
 
-			MainPage = new DigitalNameCard2.MainPage();
+            InitializeComponent();
+
+		
 		}
 
 		protected override void OnStart ()
