@@ -60,6 +60,19 @@ namespace DigitalNameCard2
             Logo.Logo.Source = logo;
         }
 
+        public void SetNameCard(Grid root, Image background, CardInfo c)
+        {
+
+            Name.Text = c.Name;
+            Title.Text = c.Title;
+            Website.Text = c.Website;
+            PhoneNumber.Text = c.PhoneNumber;
+            Email.Text = c.Email;
+            Address.Text = c.Address;
+
+            ShowCard(root, background);
+        }
+
         public void SetNameCard(Grid root, Image background, string name, string title, string website, string phoneNumber, string email, string address)
         {
             Name.Text = name;
@@ -81,7 +94,6 @@ namespace DigitalNameCard2
             root.Children.Add(PhoneNumber.Label);
             root.Children.Add(Email.Label);
             root.Children.Add(Address.Label);
-
             root.Children.Add(Logo.Logo);
 
             background.Source = Background;

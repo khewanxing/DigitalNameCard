@@ -14,6 +14,7 @@ namespace DigitalNameCard2
         public CardDatabase()
         {
             dbConnection = DependencyService.Get<ISqlLite>().GetConnection();
+            dbConnection.DropTable<CardInfo>();
             dbConnection.CreateTable<CardInfo>(CreateFlags.None);
 
             //CardInfo c = new CardInfo();
@@ -33,5 +34,13 @@ namespace DigitalNameCard2
             int result = dbConnection.Insert(c);
             return result;
         }
+        
+        public int UpdateCard(CardInfo c)
+        {
+            int result = dbConnection.Update(c);
+            return result;
+        }
+
+    
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 
 namespace DigitalNameCard2
@@ -6,6 +7,8 @@ namespace DigitalNameCard2
     public class CardInfo
     {
         Dictionary<String, String> ExtraInfo;
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         public String Name { get; set; }
         public String Title { get; set; }
         public String Website { get; set; }

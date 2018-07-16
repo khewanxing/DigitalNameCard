@@ -13,15 +13,15 @@ namespace DigitalNameCard2
 
 		public App ()
         {
+            
+            InitializeComponent();
+
             MainPage = new DigitalNameCard2.MainPage();
             cDBUtil = new CardDatabase();
 
-            InitializeComponent();
+        }
 
-		
-		}
-
-		protected override void OnStart ()
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
