@@ -4,24 +4,25 @@
              xmlns:local="clr-namespace:DigitalNameCard2"
              x:Class="DigitalNameCard2.MainPage">
 
-    <StackLayout x:Name="stackRoot">
+    <AbsoluteLayout x:Name="stackRoot">
        <!--
         <Button x:Name="myButton" Clicked="myButton_Clicked" HeightRequest="100" Text="myButton"></Button>
         <Label x:Name="JustCheckin" Text="Xamarin form rulez"></Label>
         <Label x:Name="Data" Text=""></Label>
         -->
-        
+ 
         <Image x:Name="background" Aspect="AspectFill" IsVisible="True" >
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="ImageTapped"></TapGestureRecognizer>
             </Image.GestureRecognizers>
         </Image>
         
-        <Grid x:Name="root" IsVisible="false">
+        <Grid x:Name="root" IsVisible="True" >
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TestHandler"></TapGestureRecognizer>
             </Grid.GestureRecognizers>
         </Grid>
-    </StackLayout>
+       
+    </AbsoluteLayout>
 
 </ContentPage>

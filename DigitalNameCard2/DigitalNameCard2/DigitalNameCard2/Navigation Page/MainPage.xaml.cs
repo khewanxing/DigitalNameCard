@@ -9,7 +9,7 @@ namespace DigitalNameCard2
 {
 	public partial class MainPage : ContentPage
 	{
-
+        private List<CardInfo> cardList;
         public void GridInit()
         {
 
@@ -38,14 +38,14 @@ namespace DigitalNameCard2
             //CardLabel name = new CardLabel(20, 15, 3, 15, NamedSize.Large, TextAlignment.Center);
             //name.Text = "John Wick";
 
-            Grid g = new Grid();
+            //Grid g = new Grid();
 
-            g.SetValue(Grid.RowProperty, 0);
-            g.SetValue(Grid.ColumnProperty, 0);
-            g.SetValue(Grid.RowSpanProperty, 10);
-            g.SetValue(Grid.ColumnSpanProperty, 10);
+            //g.SetValue(Grid.RowProperty, 0);
+            //g.SetValue(Grid.ColumnProperty, 0);
+            //g.SetValue(Grid.RowSpanProperty, 10);
+            //g.SetValue(Grid.ColumnSpanProperty, 10);
 
-            g.BackgroundColor = Color.Red;
+            //g.BackgroundColor = Color.Red;
 
             //CardLabel title = new CardLabel(23, 15, 3, 15, NamedSize.Medium, TextAlignment.Center);
             //title.Text = "Head Programmer";
@@ -53,18 +53,18 @@ namespace DigitalNameCard2
             //root.Children.Add(name.Label);
             //root.Children.Add(title.Label);
 
-            root.Children.Add(g);
+            //root.Children.Add(g);
             #endregion
 
             App.cDBUtil = new CardDatabase();
             //loading info from db3 into card
-            List<CardInfo> result = App.cDBUtil.GetAllCard();
+            cardList = App.cDBUtil.GetAllCard();
             //enter card info to class and to extra info
             
             //visualize card
 
             NameCard card = NameCard.CreateCardDesign(0);
-            card.SetNameCard(root, background, result[0]);
+            card.SetNameCard(root, background, cardList[0]);
            // card.SetNameCard(root, background, "John Doe", "- Main Photographer -", "www.johndoephotography.com", "+6281233344455", "john.doe@johndoephotography.com", "Jl. Dago 999, Bandung, Indonesia");
         }
 
@@ -72,12 +72,21 @@ namespace DigitalNameCard2
 
         private async void ImageTapped(object sender, EventArgs args)
         {
-            await DisplayAlert("Something","Number of Children :" +  root.Children.Count + " ", "OK");
-       }
+            //await DisplayAlert("Something","Number of Children :" +  root.Children.Count + " ", "OK");
+            GoSecondPage();
+        }
 
         private void TestHandler(object sender, EventArgs e)
         {
-            DisplayAlert("Test", "Test", "Test");
+            //go 2nd page
+            //DisplayAlert("Test", "Test", "Test");
+            GoSecondPage();
+        }
+
+        public void GoSecondPage()
+        {
+            Application.Current.MainPage = new NavigationPage(new ExtraInfo(cardList));
+
         }
 
 

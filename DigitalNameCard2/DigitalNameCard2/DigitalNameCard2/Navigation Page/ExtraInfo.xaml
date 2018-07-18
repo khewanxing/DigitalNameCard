@@ -4,13 +4,14 @@
              
              x:Class="DigitalNameCard2.ExtraInfo">
     <ContentPage.Content >
-        <StackLayout BindingContext="User">
-             
-                <StackLayout>
-                    <Label Text="Test Title" ></Label>
-                    <Label Text="Description"></Label>
-                </StackLayout>
-            
+        <StackLayout>
+            <StackLayout x:Name="root" Orientation="Vertical">
+            </StackLayout>
+            <StackLayout x:Name="rootMenu" Orientation="Horizontal">
+                <Button Text="Find"></Button>
+                <Button Text="Library"></Button>
+                <Button Text="Add"></Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -12,7 +12,7 @@ namespace DigitalNameCard2
         {
             if (number == 0)
                 return new NameCard(
-                    new LabelSetting(20, 13, 3, 15, NamedSize.Medium, TextAlignment.Center, Color.Black),
+                    new LabelSetting(20, 13, 5, 15, NamedSize.Medium, TextAlignment.Center, Color.Black),
                     new LabelSetting(23, 13, 3, 15, NamedSize.Small, TextAlignment.Center, Color.Black),
                     new LabelSetting(44, 5, 2, 20, NamedSize.Micro, TextAlignment.Center, Color.White),
                     new LabelSetting(46, 5, 2, 20, NamedSize.Micro, TextAlignment.Center, Color.White),
