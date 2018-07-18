@@ -11,17 +11,19 @@
         <Label x:Name="Data" Text=""></Label>
         -->
         
+        
+        
+        <Grid x:Name="root" IsVisible="True">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TestHandler"></TapGestureRecognizer>
+            </Grid.GestureRecognizers>
+        </Grid>
+
         <Image x:Name="background" Aspect="AspectFill" IsVisible="True" >
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="ImageTapped"></TapGestureRecognizer>
             </Image.GestureRecognizers>
         </Image>
-        
-        <Grid x:Name="root" IsVisible="false">
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TestHandler"></TapGestureRecognizer>
-            </Grid.GestureRecognizers>
-        </Grid>
     </StackLayout>
 
 </ContentPage>
