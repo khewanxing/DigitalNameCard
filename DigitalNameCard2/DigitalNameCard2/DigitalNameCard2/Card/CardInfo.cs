@@ -9,6 +9,12 @@ namespace DigitalNameCard2
     {
         public String Key { get; set; }
         public String Value { get; set; }
+
+        public xInfo(String key, String value )
+        {
+            Key = key;
+            Value = value;
+        }
     }
 
     public class CardInfo
