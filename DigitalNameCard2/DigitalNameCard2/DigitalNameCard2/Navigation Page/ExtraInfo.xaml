@@ -4,16 +4,18 @@
              
              x:Class="DigitalNameCard2.ExtraInfo">
     <ContentPage.Content >
-        <StackLayout x:Name="root">
-             
-                <StackLayout>
-                    <Label Text="Test Title" ></Label>
-                    <Label Text="Description"></Label>
-                </StackLayout>
-            
-        </StackLayout>
-        <StackLayout>
-            
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90*"></RowDefinition>
+                <RowDefinition Height="10*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout x:Name="root" Orientation="Vertical" Grid.Row="0">
+            </StackLayout>
+            <StackLayout x:Name="rootMenu" Orientation="Horizontal" Grid.Row="1">
+                <Button Text="Find"></Button>
+                <Button Text="Library"></Button>
+                <Button Text="Add"></Button>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

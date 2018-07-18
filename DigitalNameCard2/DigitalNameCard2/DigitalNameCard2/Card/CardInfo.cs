@@ -4,9 +4,22 @@ using System.Collections.Generic;
 
 namespace DigitalNameCard2
 {
+
+    public class xInfo
+    {
+        public String Key { get; set; }
+        public String Value { get; set; }
+
+        public xInfo(String key, String value )
+        {
+            Key = key;
+            Value = value;
+        }
+    }
+
     public class CardInfo
     {
-        Dictionary<String, String> ExtraInfo;
+        
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public String Name { get; set; }
@@ -15,7 +28,8 @@ namespace DigitalNameCard2
         public String PhoneNumber { get; set; }
         public String Email { get; set; }
         public String Address { get; set; }
-
+       
+        public String ExtraInfo { get; set; }
         /*
 
         public CardInfo(string name, string  title, string website, string phonenumber, string email, string address)

@@ -4,6 +4,7 @@ using System.Text;
 using SQLite;
 using Xamarin.Forms;
 using SQLitePCL;
+using Newtonsoft.Json;
 
 namespace DigitalNameCard2
 {
@@ -14,17 +15,33 @@ namespace DigitalNameCard2
         public CardDatabase()
         {
             dbConnection = DependencyService.Get<ISqlLite>().GetConnection();
-           // dbConnection.DropTable<CardInfo>();
+            dbConnection.DropTable<CardInfo>();
             dbConnection.CreateTable<CardInfo>(CreateFlags.None);
 
-            //CardInfo c = new CardInfo();
-            //c.Name = "Sulaeman Santoso";
-            //c.Title = "Programmer extraordinaire";
-            //c.PhoneNumber = "082240062800";
-            //c.Website = "sulaeman.santoso.it.maranatha.edu";
-            //c.Email = "vatsuko@gmail.com";
-            //c.Address = "Jl ABC no 10";
-            //dbConnection.Insert(c);
+            CardInfo c = new CardInfo();
+            c.Name = "Sulaeman Santoso";
+            c.Title = "Programmer extraordinaire";
+            c.PhoneNumber = "082240062800";
+            c.Website = "sulaeman.santoso.it.maranatha.edu";
+            c.Email = "vatsuko@gmail.com";
+            c.Address = "Jl ABC no 10";
+            List<xInfo> xtraInfo = new List<xInfo>();
+            xInfo temp = new xInfo("research gate","wwww.researchgate.com");
+            xtraInfo.Add(temp);
+
+            temp = new xInfo("hobby","www.alienware.com");
+            xtraInfo.Add(temp);
+
+            temp = new xInfo("facebook", "wwww.facebook.com");
+            xtraInfo.Add(temp);
+
+            xtraInfo.Add(new xInfo("twitter", "@Sulaemansantoso"));
+            xtraInfo.Add(new xInfo("Instagam", "@Sulaemansantoso"));
+
+
+            String result = JsonConvert.SerializeObject(xtraInfo);
+            c.ExtraInfo = result;
+            dbConnection.Insert(c);
         }
 
         public List<CardInfo> GetAllCard()
