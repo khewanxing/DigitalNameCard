@@ -70,7 +70,7 @@ namespace DigitalNameCard2
 
  
 
-        private async void ImageTapped(object sender, EventArgs args)
+        private void ImageTapped(object sender, EventArgs args)
         {
             //await DisplayAlert("Something","Number of Children :" +  root.Children.Count + " ", "OK");
             GoSecondPage();
@@ -85,8 +85,8 @@ namespace DigitalNameCard2
 
         public void GoSecondPage()
         {
-            Application.Current.MainPage = new NavigationPage(new ExtraInfo(cardList));
-
+            // Application.Current.MainPage = new NavigationPage(new ExtraInfo(cardList));
+            Application.Current.MainPage.Navigation.PushModalAsync(new ExtraInfo(cardList));
         }
 
 
