@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:DigitalNameCard2"
              x:Class="DigitalNameCard2.MainPage">
 
-    <AbsoluteLayout x:Name="stackRoot">
+    <Grid x:Name="stackRoot">
        <!--
         <Button x:Name="myButton" Clicked="myButton_Clicked" HeightRequest="100" Text="myButton"></Button>
         <Label x:Name="JustCheckin" Text="Xamarin form rulez"></Label>
@@ -23,6 +23,6 @@
             </Grid.GestureRecognizers>
         </Grid>
        
-    </AbsoluteLayout>
+    </Grid>
 
 </ContentPage>

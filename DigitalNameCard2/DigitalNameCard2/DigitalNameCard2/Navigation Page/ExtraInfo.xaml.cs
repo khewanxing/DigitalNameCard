@@ -27,11 +27,12 @@ namespace DigitalNameCard2
                 Grid s = new Grid();
 
                 ColumnDefinition infoColumn = new ColumnDefinition();
-                infoColumn.Width = 5;
+                infoColumn.Width = new GridLength(1, GridUnitType.Star);
                 
                 s.ColumnDefinitions.Add(infoColumn);
                 ColumnDefinition valueColumn = new ColumnDefinition();
-                
+                valueColumn.Width = new GridLength(3, GridUnitType.Star);
+
                 s.ColumnDefinitions.Add(valueColumn);
                 s.SetValue(Grid.MarginProperty, "0,0");
                 s.SetValue(Grid.ColumnSpacingProperty, 0);
@@ -40,15 +41,15 @@ namespace DigitalNameCard2
 
                 BoxView bView = new BoxView();
                 bView.Color = Color.Black;
-                bView.SetValue(Grid.ColumnProperty, 1);
+                bView.SetValue(Grid.ColumnProperty, 0);
                 s.Children.Add(bView);
 
                 Label _label = new Label(); _label.Text= item.Key;_label.TextColor = Color.White;
-                _label.SetValue(Grid.ColumnProperty, 1);
+                _label.SetValue(Grid.ColumnProperty, 0);
                 _label.SetValue(Label.MarginProperty, "5,5,5,5");
 
                 Label _value = new Label(); _value.Text = item.Value;
-                _value.SetValue(Grid.ColumnProperty, 2);
+                _value.SetValue(Grid.ColumnProperty, 1);
                 _value.SetValue(Label.MarginProperty, "5,5,5,5");
 
                 s.Children.Add(_label);
