@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DigitalNameCard2.Card.CardFrame">
+  <ContentView.Content>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Label x:Name="lblName" Grid.Row="0" Margin="10,0,0,5"></Label>
+            <BoxView   Grid.Row="0" Grid.ColumnSpan="2"
+               VerticalOptions="End"
+               HorizontalOptions="Fill"
+               HeightRequest="1"
+               Color="Blue"/>
+            <Button x:Name="btnLook" Grid.Row="0" Grid.Column="1" Text="Show" Clicked="btnLook_Clicked"></Button>
+        </Grid>
+  </ContentView.Content>
+</ContentView>

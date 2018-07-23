@@ -10,6 +10,8 @@ namespace DigitalNameCard2
 	public partial class MainPage : ContentPage
 	{
         private List<CardInfo> cardList;
+        private CardInfo current;
+
         public void GridInit()
         {
 
@@ -27,6 +29,23 @@ namespace DigitalNameCard2
                 root.ColumnDefinitions.Add(c);
             }
         }
+
+        public MainPage(CardInfo user)
+        {
+            InitializeComponent();
+            GridInit();
+            App.cDBUtil = new CardDatabase();
+            //loading info from db3 into card
+            cardList = App.cDBUtil.GetAllCard();
+            //enter card info to class and to extra info
+
+            //visualize card
+            current = user;
+            NameCard card = NameCard.CreateCardDesign(0);
+            card.SetNameCard(root, background, user);
+
+        }
+
 
         public MainPage()
 		{
@@ -65,6 +84,7 @@ namespace DigitalNameCard2
 
             NameCard card = NameCard.CreateCardDesign(0);
             card.SetNameCard(root, background, cardList[0]);
+            current = cardList[0];
            // card.SetNameCard(root, background, "John Doe", "- Main Photographer -", "www.johndoephotography.com", "+6281233344455", "john.doe@johndoephotography.com", "Jl. Dago 999, Bandung, Indonesia");
         }
 
@@ -86,7 +106,7 @@ namespace DigitalNameCard2
         public void GoSecondPage()
         {
             // Application.Current.MainPage = new NavigationPage(new ExtraInfo(cardList));
-            Application.Current.MainPage.Navigation.PushModalAsync(new ExtraInfo(cardList));
+            Application.Current.MainPage.Navigation.PushModalAsync(new ExtraInfo(cardList,current));
         }
 
 

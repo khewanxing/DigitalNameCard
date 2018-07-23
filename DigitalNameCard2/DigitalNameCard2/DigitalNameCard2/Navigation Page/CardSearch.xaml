@@ -15,11 +15,14 @@
                     <ColumnDefinition Width="6*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Text="Search : " Grid.Column="0" Margin="2,2,2,2" FontSize="Medium"></Label>
-                <Entry Placeholder="Enter Search Query" Grid.Column="1"></Entry>
-                <Button Image="icon.png" Grid.Column="2" Text="Search"></Button>
+                <Label Text="Search : " VerticalOptions="Center" Grid.Column="0" Margin="2,2,2,2" FontSize="Medium"></Label>
+                <Entry Placeholder="Enter Search Query" Grid.Column="1" IsEnabled="True" TextChanged="Entry_TextChanged"></Entry>
+                <Button Grid.Column="2" Text="Search"></Button>
             </Grid>
-            <StackLayout x:Name="root">
+            <StackLayout x:Name="root" Grid.Row="1">
+                
+            </StackLayout>
+            <StackLayout x:Name="footer" Grid.Row="2">
                 
             </StackLayout>
         </Grid>

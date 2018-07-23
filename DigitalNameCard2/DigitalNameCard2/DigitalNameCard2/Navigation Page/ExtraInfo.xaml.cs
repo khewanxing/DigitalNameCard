@@ -15,11 +15,11 @@ namespace DigitalNameCard2
 	public partial class ExtraInfo : ContentPage
 	{
              
-		public ExtraInfo (List<CardInfo> c)
+		public ExtraInfo (List<CardInfo> c, CardInfo current)
 		{
 			InitializeComponent ();
             //enter info 
-            CardInfo User = c[0];
+            CardInfo User = current;
             
 
             List<xInfo> info = JsonConvert.DeserializeObject<List<xInfo>>(User.ExtraInfo);
