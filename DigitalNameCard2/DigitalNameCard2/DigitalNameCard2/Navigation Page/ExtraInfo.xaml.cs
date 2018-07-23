@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Newtonsoft.Json;
+using DigitalNameCard2.Navigation_Page;
 
 namespace DigitalNameCard2
 {
@@ -27,7 +28,7 @@ namespace DigitalNameCard2
                 Grid s = new Grid();
 
                 ColumnDefinition infoColumn = new ColumnDefinition();
-                infoColumn.Width = new GridLength(1, GridUnitType.Star);
+                infoColumn.Width = new GridLength(2, GridUnitType.Star);
                 
                 s.ColumnDefinitions.Add(infoColumn);
                 ColumnDefinition valueColumn = new ColumnDefinition();
@@ -45,16 +46,48 @@ namespace DigitalNameCard2
 
                 Label _label = new Label(); _label.Text= item.Key;_label.TextColor = Color.White;
                 _label.SetValue(Grid.ColumnProperty, 0);
-                _label.SetValue(Label.MarginProperty, "15");
+                _label.SetValue(Label.MarginProperty, new Thickness(5));
 
                 Label _value = new Label(); _value.Text = item.Value;
                 _value.SetValue(Grid.ColumnProperty, 1);
-                _value.SetValue(Label.MarginProperty, "10");
+                
+                _value.SetValue(Label.MarginProperty, new Thickness(5));
+                TapGestureRecognizer tapper = new TapGestureRecognizer();
+                tapper.Tapped += (source, events) =>
+                {
+                    if (!item.Link.StartsWith("http:"))
+                    {
+                        item.Link = "http://" + item.Link;
+                    }
+                    Uri uri = new Uri(item.Link);
+                    Device.OpenUri(uri);
+                };
+                s.GestureRecognizers.Add(tapper);
+                
 
                 s.Children.Add(_label);
                 s.Children.Add(_value);
                 root.Children.Add(s);
             }
         }
-	}
+
+        public void Profile(object sender, EventArgs args)
+        {
+            Application.Current.MainPage.Navigation.PushModalAsync(new AddCard());
+
+        }
+
+        public void  SearchCard(object sender, EventArgs args)
+        {
+            Application.Current.MainPage.Navigation.PushModalAsync(new CardSearch());
+
+        }
+
+        public void AddCard(object sender, EventArgs args)
+        {
+            Application.Current.MainPage.Navigation.PushModalAsync(new AddCard());
+
+        }
+
+    }
 }

@@ -6,21 +6,25 @@
     <ContentPage.Content >
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="90*"></RowDefinition>
+                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="80*"></RowDefinition>
                 <RowDefinition Height="10*"></RowDefinition>
             </Grid.RowDefinitions>
-            <StackLayout x:Name="root" Orientation="Vertical"  Grid.Row="0" Padding="5" Margin="10" Spacing="5">
+            <BoxView x:Name="boxRoot" Grid.Row="0" BackgroundColor="Black" HeightRequest="100">
+                
+            </BoxView>
+            <StackLayout x:Name="root" Orientation="Vertical"  Grid.Row="1" Spacing="1">
             
             </StackLayout>
-            <Grid x:Name="rootMenu" Grid.Row="1">
+            <Grid x:Name="rootMenu" Grid.Row="2" ColumnSpacing="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Text="Find"  Grid.Column="0"> </Button>
-                <Button Text="Library" Grid.Column="1"></Button>
-                <Button Text="Add" Grid.Column="2"></Button>
+                <Button Text="Profile"  Grid.Column="0" Clicked="Profile"> </Button>
+                <Button Text="Library" Grid.Column="1" Clicked="SearchCard"></Button>
+                <Button Text="Add" Grid.Column="2" Clicked="AddCard"></Button>
             </Grid>
         </Grid>
     </ContentPage.Content>

@@ -26,18 +26,17 @@ namespace DigitalNameCard2
             c.Email = "vatsuko@gmail.com";
             c.Address = "Jl ABC no 10";
             List<xInfo> xtraInfo = new List<xInfo>();
-            xInfo temp = new xInfo("research gate","wwww.researchgate.com");
+            xInfo temp = new xInfo("research gate","wwww.researchgate.com","www.researchgate.com");
             xtraInfo.Add(temp);
 
-            temp = new xInfo("hobby","www.alienware.com");
+            temp = new xInfo("hobby","www.alienware.com","www.alibaba.com");
             xtraInfo.Add(temp);
 
-            temp = new xInfo("facebook", "wwww.facebook.com");
+            temp = new xInfo("facebook", "wwww.facebook.com","www.facebook.com");
             xtraInfo.Add(temp);
 
-            xtraInfo.Add(new xInfo("twitter", "@Sulaemansantoso"));
-            xtraInfo.Add(new xInfo("Instagam", "@Sulaemansantoso"));
-
+            xtraInfo.Add(new xInfo("twitter", "@Sulaemansantoso","www.twitter.com"));
+            xtraInfo.Add(new xInfo("Instagam", "@Sulaemansantoso","www.adhd.com"));
 
             String result = JsonConvert.SerializeObject(xtraInfo);
             c.ExtraInfo = result;

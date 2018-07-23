@@ -9,11 +9,13 @@ namespace DigitalNameCard2
     {
         public String Key { get; set; }
         public String Value { get; set; }
+        public String Link { get; set; }
 
-        public xInfo(String key, String value )
+        public xInfo(String key, String value , String link)
         {
             Key = key;
             Value = value;
+            Link = link;
         }
     }
 
