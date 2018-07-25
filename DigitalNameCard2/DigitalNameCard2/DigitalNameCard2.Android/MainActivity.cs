@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using ZXing.Mobile;
 
 namespace DigitalNameCard2.Droid
 {
@@ -14,13 +15,20 @@ namespace DigitalNameCard2.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
+            
+            base.OnCreate(bundle);
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
-            base.OnCreate(bundle);
+              ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            global::ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }
