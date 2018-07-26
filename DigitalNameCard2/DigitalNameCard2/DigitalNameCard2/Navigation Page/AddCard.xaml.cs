@@ -7,44 +7,79 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ZXing.Net.Mobile.Forms;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace DigitalNameCard2.Navigation_Page
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AddCard : ContentPage
 	{
-		public AddCard ()
+        ZXingScannerView viewer;
+        ZXingDefaultOverlay overlay;
+        CardInfo current;
+
+		public AddCard (CardInfo current)
 		{
 			InitializeComponent ();
+            this.current = current;
+            String jsonCurrent = JsonConvert.SerializeObject(current);
+
+            //create current barcode
+            //imgQR.BarcodeValue = jsonCurrent;
+            imgQR.BarcodeValue = "bawahahahahahaa omg omg omg";
+          
 		}
 
         private async void btnScan_Clicked(object sender, EventArgs e)
         {
 
-            var option = new ZXing.Mobile.MobileBarcodeScanningOptions()
+            viewer = new ZXingScannerView
             {
-                AutoRotate = false,
-                UseFrontCameraIfAvailable = false,
-                TryHarder = true,
-                PossibleFormats  = new List<ZXing.BarcodeFormat>
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                AutomationId = "zxingscannerview",
+                IsScanning = true,
+                
+            };
+
+            viewer.OnScanResult += (result) =>
+            {
+                Device.BeginInvokeOnMainThread(async()=>
                 {
-                    ZXing.BarcodeFormat.EAN_8, ZXing.BarcodeFormat.EAN_13
-                }
+                    //viewer.IsAnalyzing = false;
+                    
+                    await DisplayAlert("Scanned result : ", result.Text, "OK");
+                    //if you got the thing get
+                    await Navigation.PopModalAsync();
+                });
             };
 
-            var scanPage = new ZXingScannerPage(option)
+            overlay = new ZXingDefaultOverlay
             {
-                Title = "Scan Barcode Here"
+                TopText = "Hold your phone up to the barcode",
+                BottomText = "Scanning will happen automatically",
+                ShowFlashButton = viewer.HasTorch,
+                AutomationId = "zxingDefaultOverlay",
             };
-            await Application.Current.MainPage.Navigation.PushModalAsync(scanPage);
-            scanPage.OnScanResult += ScanPage_OnScanResult;
 
+            overlay.FlashButtonClicked += (senders,ex) =>
+            {
+                viewer.IsTorchOn = !viewer.IsTorchOn;
+            };
+
+            var grid = new Grid()
+            {
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
+
+            grid.Children.Add(viewer);
+            grid.Children.Add(overlay);
+
+            Content = grid;
         }
 
-        private void ScanPage_OnScanResult(ZXing.Result result)
-        {
-            var ResultText = result.Text;
-            DisplayAlert("Result", ResultText, "OK");
-        }
+  
     }
 }

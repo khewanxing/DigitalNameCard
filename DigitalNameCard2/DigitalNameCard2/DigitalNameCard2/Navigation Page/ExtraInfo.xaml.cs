@@ -14,13 +14,14 @@ namespace DigitalNameCard2
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ExtraInfo : ContentPage
 	{
-             
+
+        CardInfo current;
 		public ExtraInfo (List<CardInfo> c, CardInfo current)
 		{
 			InitializeComponent ();
             //enter info 
             CardInfo User = current;
-            
+            this.current = current;
 
             List<xInfo> info = JsonConvert.DeserializeObject<List<xInfo>>(User.ExtraInfo);
             foreach (var item in info)
@@ -73,7 +74,7 @@ namespace DigitalNameCard2
 
         public void Profile(object sender, EventArgs args)
         {
-            Application.Current.MainPage.Navigation.PushModalAsync(new AddCard());
+            Application.Current.MainPage.Navigation.PushModalAsync(new AddCard(current));
 
         }
 
@@ -85,7 +86,7 @@ namespace DigitalNameCard2
 
         public void AddCard(object sender, EventArgs args)
         {
-            Application.Current.MainPage.Navigation.PushModalAsync(new AddCard());
+            Application.Current.MainPage.Navigation.PushModalAsync(new AddCard(current));
 
         }
 
