@@ -44,6 +44,7 @@ namespace DigitalNameCard2
             NameCard card = NameCard.CreateCardDesign(user.DesignNo);
             card.SetNameCard(root, background, user);
             background.Source = ImageSource.FromFile(card.Background);
+            bgImage.Source = ImageSource.FromFile(card.Background);
             
 
         }
@@ -88,6 +89,7 @@ namespace DigitalNameCard2
             card.SetNameCard(root, background, cardList[0]);
             current = cardList[0];
             background.Source = card.Background;
+            bgImage.Source = ImageSource.FromFile(card.Background);
             //card.SetNameCard(root, background, "John Doe", "- Main Photographer -", "www.johndoephotography.com", "+6281233344455", "john.doe@johndoephotography.com", "Jl. Dago 999, Bandung, Indonesia");
         }
 
@@ -110,6 +112,7 @@ namespace DigitalNameCard2
         {
             // Application.Current.MainPage = new NavigationPage(new ExtraInfo(cardList));
             Application.Current.MainPage.Navigation.PushModalAsync(new ExtraInfo(cardList,current));
+            //bgImage.Source = "backgroundcard2.png";
         }
 
 

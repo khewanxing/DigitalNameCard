@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:DigitalNameCard2"
+             xmlns:y="clr-namespace:FFImageLoading;assembly=FFImageLoading"
+             xmlns:z="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="DigitalNameCard2.MainPage">
 
     <Grid x:Name="stackRoot">
@@ -10,8 +12,11 @@
         <Label x:Name="JustCheckin" Text="Xamarin form rulez"></Label>
         <Label x:Name="Data" Text=""></Label>
        -->
- 
-        <Image x:Name="background" Aspect="AspectFill" Source="backgroundcard2.png" >
+
+        <z:CachedImage x:Name="bgImage" Aspect="AspectFill" >
+            
+        </z:CachedImage>
+        <Image x:Name="background" Aspect="AspectFill"  IsVisible="False">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="ImageTapped"></TapGestureRecognizer>
             </Image.GestureRecognizers>

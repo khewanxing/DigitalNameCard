@@ -26,6 +26,7 @@ namespace DigitalNameCard2
 
             //adding image
             String jsonCurrent = JsonConvert.SerializeObject(current);
+            
 
             ////create current barcode
             String jsonClean = jsonCurrent.Replace('\\', ' ');

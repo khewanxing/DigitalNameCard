@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using FFImageLoading;
 using ZXing.Mobile;
 
 namespace DigitalNameCard2.Droid
@@ -20,7 +21,10 @@ namespace DigitalNameCard2.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
-              ZXing.Net.Mobile.Forms.Android.Platform.Init();
+            //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(false);
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(false);
+
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
