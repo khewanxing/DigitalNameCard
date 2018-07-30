@@ -14,7 +14,7 @@
             </StackLayout>
             <StackLayout Grid.Row="1">
                 <Image x:Name="imgQR"></Image>
-                <Label x:Name="Scan this QR to add"></Label>
+                <Label x:Name="lblScan" Text="Scan this Barcode"></Label>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
