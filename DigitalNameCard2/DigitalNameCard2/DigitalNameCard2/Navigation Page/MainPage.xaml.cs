@@ -41,8 +41,10 @@ namespace DigitalNameCard2
 
             //visualize card
             current = user;
-            NameCard card = NameCard.CreateCardDesign(0);
+            NameCard card = NameCard.CreateCardDesign(user.DesignNo);
             card.SetNameCard(root, background, user);
+            background.Source = ImageSource.FromFile(card.Background);
+            
 
         }
 
@@ -77,15 +79,16 @@ namespace DigitalNameCard2
 
             App.cDBUtil = new CardDatabase();
             //loading info from db3 into card
-            cardList = App.cDBUtil.GetAllCard();
+             cardList = App.cDBUtil.GetAllCard();
             //enter card info to class and to extra info
-            
+
             //visualize card
 
-            NameCard card = NameCard.CreateCardDesign(0);
+            NameCard card = NameCard.CreateCardDesign(cardList[0].DesignNo);
             card.SetNameCard(root, background, cardList[0]);
             current = cardList[0];
-           // card.SetNameCard(root, background, "John Doe", "- Main Photographer -", "www.johndoephotography.com", "+6281233344455", "john.doe@johndoephotography.com", "Jl. Dago 999, Bandung, Indonesia");
+            background.Source = card.Background;
+            //card.SetNameCard(root, background, "John Doe", "- Main Photographer -", "www.johndoephotography.com", "+6281233344455", "john.doe@johndoephotography.com", "Jl. Dago 999, Bandung, Indonesia");
         }
 
  

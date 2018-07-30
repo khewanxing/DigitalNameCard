@@ -33,6 +33,7 @@ namespace DigitalNameCard2
             c.Website = "sulaeman.santoso.it.maranatha.edu";
             c.Email = "vatsuko@gmail.com";
             c.Address = "Jl ABC no 10";
+            c.DesignNo = 0;
             List<xInfo> xtraInfo = new List<xInfo>();
             xInfo temp = new xInfo("research gate", "wwww.researchgate.com", "www.researchgate.com");
             xtraInfo.Add(temp);
@@ -54,6 +55,7 @@ namespace DigitalNameCard2
             c.Website = "waynecorp.com";
             c.Email = "bruce.wayne@gmail.com";
             c.Address = "Gotham Avenue 1";
+            c.DesignNo = 1;
             xtraInfo = new List<xInfo>();
             temp = new xInfo("research gate", "wwww.researchgate.com", "www.researchgate.com");
             xtraInfo.Add(temp);
@@ -61,8 +63,8 @@ namespace DigitalNameCard2
             xtraInfo.Add(temp);
             temp = new xInfo("facebook", "wwww.facebook.com", "www.facebook.com");
             xtraInfo.Add(temp);
-            xtraInfo.Add(new xInfo("twitter", "@Sulaemansantoso", "www.twitter.com"));
-            xtraInfo.Add(new xInfo("Instagam", "@Sulaemansantoso", "www.adhd.com"));
+            xtraInfo.Add(new xInfo("twitter", "@BruceWayne", "www.twitter.com"));
+            xtraInfo.Add(new xInfo("Instagam", "@WayneEnterprise", "www.adhd.com"));
 
             result = JsonConvert.SerializeObject(xtraInfo);
             c.ExtraInfo = result;
@@ -74,7 +76,8 @@ namespace DigitalNameCard2
             c.PhoneNumber = "082240062800";
             c.Website = "stark.com";
             c.Email = "tony@stark.com";
-            c.Address = "Jl ABC no 10";
+            c.Address = "Stark Tower apt suite 1";
+            c.DesignNo = 0;
             xtraInfo = new List<xInfo>();
             temp = new xInfo("research gate", "wwww.researchgate.com", "www.researchgate.com");
             xtraInfo.Add(temp);
@@ -82,8 +85,8 @@ namespace DigitalNameCard2
             xtraInfo.Add(temp);
             temp = new xInfo("facebook", "wwww.facebook.com", "www.facebook.com");
             xtraInfo.Add(temp);
-            xtraInfo.Add(new xInfo("twitter", "@Sulaemansantoso", "www.twitter.com"));
-            xtraInfo.Add(new xInfo("Instagam", "@Sulaemansantoso", "www.adhd.com"));
+            xtraInfo.Add(new xInfo("twitter", "@TonyStark", "www.twitter.com"));
+            xtraInfo.Add(new xInfo("Instagam", "@StarkIndustries", "www.adhd.com"));
 
             result = JsonConvert.SerializeObject(xtraInfo);
             c.ExtraInfo = result;

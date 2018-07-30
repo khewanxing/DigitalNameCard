@@ -25,13 +25,16 @@ namespace DigitalNameCard2.Navigation_Page
             this.current = current;
             String jsonCurrent = JsonConvert.SerializeObject(current);
 
-            //create current barcode
-            //imgQR.BarcodeValue = jsonCurrent;
-            imgQR.BarcodeValue = "bawahahahahahaa omg omg omg";
-          
-		}
+            ////create current barcode
+            
+            int count = jsonCurrent.Length;
+            imgQR.BarcodeValue = jsonCurrent;
 
-        private async void btnScan_Clicked(object sender, EventArgs e)
+            //imgQR.BarcodeValue = "bawahahahahahaa omg omg omg";
+
+        }
+
+        private  void btnScan_Clicked(object sender, EventArgs e)
         {
 
             viewer = new ZXingScannerView
