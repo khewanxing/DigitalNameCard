@@ -43,7 +43,7 @@ namespace DigitalNameCard2
         private CardLabel Email { get; set; }
         private CardLabel Address { get; set; }
 
-        private string Background { get; set; }
+        public string Background { get; set; }
         private CardLogo Logo { get; set; }
 
         public NameCard(LabelSetting nameSetting, LabelSetting titleSetting, LabelSetting websiteSetting, LabelSetting phoneNumberSetting, LabelSetting emailSetting, LabelSetting addressSetting, ImageSetting logoSetting, string logo, string background)
@@ -97,6 +97,7 @@ namespace DigitalNameCard2
             root.Children.Add(Logo.Logo);
 
             background.Source = Background;
+            
         }
     }
 }

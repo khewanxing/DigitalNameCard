@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DigitalNameCard2.Card.CardFrame">
   <ContentView.Content>
-        <Grid >
+        <Grid Margin="0" Padding="0" >
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -13,7 +13,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             
-            <Label x:Name="lblName" Grid.Row="0" Margin="10,0,0,5"></Label>
+            <Label x:Name="lblName" Grid.Row="0"></Label>
             <BoxView   Grid.Row="0" Grid.ColumnSpan="2"
                VerticalOptions="End"
                HorizontalOptions="Fill"

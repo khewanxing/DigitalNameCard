@@ -1,22 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             
+             xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              x:Class="DigitalNameCard2.ExtraInfo">
     <ContentPage.Content >
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="10*"></RowDefinition>
-                <RowDefinition Height="80*"></RowDefinition>
-                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
-            <BoxView x:Name="boxRoot" Grid.Row="0" BackgroundColor="Black" HeightRequest="100">
-                
-            </BoxView>
-            <StackLayout x:Name="root" Orientation="Vertical"  Grid.Row="1" Spacing="1">
             
-            </StackLayout>
-            <Grid x:Name="rootMenu" Grid.Row="2" ColumnSpacing="0">
+            <ScrollView Grid.Row="0">
+                <StackLayout x:Name="root" Orientation="Vertical" Spacing="1">
+                </StackLayout>
+            </ScrollView>
+            <Grid Grid.Row="1">
+                <forms:ZXingBarcodeImageView x:Name="barcodeImage" 
+                                             HorizontalOptions="FillAndExpand"  
+                                             VerticalOptions="FillAndExpand" 
+                                             BarcodeFormat="QR_CODE" 
+                                             HeightRequest="200"
+                                             WidthRequest="200">
+
+                </forms:ZXingBarcodeImageView>  
+            </Grid>
+            <Grid x:Name="rootMenu" Grid.Row="3" ColumnSpacing="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -24,7 +33,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Text="Profile"  Grid.Column="0" Clicked="Profile"> </Button>
                 <Button Text="Library" Grid.Column="1" Clicked="SearchCard"></Button>
-                <Button Text="Add" Grid.Column="2" Clicked="AddCard"></Button>
+                <Button Text="Scan QR" Grid.Column="2" Clicked="ScanQR"></Button>
             </Grid>
         </Grid>
     </ContentPage.Content>

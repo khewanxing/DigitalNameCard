@@ -5,13 +5,13 @@
              x:Class="DigitalNameCard2.MainPage">
 
     <Grid x:Name="stackRoot">
-       <!--
+        <!--
         <Button x:Name="myButton" Clicked="myButton_Clicked" HeightRequest="100" Text="myButton"></Button>
         <Label x:Name="JustCheckin" Text="Xamarin form rulez"></Label>
         <Label x:Name="Data" Text=""></Label>
-        -->
+       -->
  
-        <Image x:Name="background" Aspect="AspectFill" IsVisible="True" >
+        <Image x:Name="background" Aspect="AspectFill" Source="backgroundcard2.png" >
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="ImageTapped"></TapGestureRecognizer>
             </Image.GestureRecognizers>
@@ -22,7 +22,7 @@
                 <TapGestureRecognizer Tapped="TestHandler"></TapGestureRecognizer>
             </Grid.GestureRecognizers>
         </Grid>
-       
+        
     </Grid>
 
 </ContentPage>

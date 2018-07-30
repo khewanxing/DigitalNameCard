@@ -30,7 +30,7 @@ namespace DigitalNameCard2
         public String PhoneNumber { get; set; }
         public String Email { get; set; }
         public String Address { get; set; }
-       
+        public int DesignNo { get; set; }
         public String ExtraInfo { get; set; }
         /*
 
