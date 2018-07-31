@@ -18,11 +18,11 @@ namespace DigitalNameCard2
             Link = link;
         }
     }
-
+   
     public class CardInfo
     {
         
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement][Indexed]
         public int Id { get; set; }
         public String Name { get; set; }
         public String Title { get; set; }
@@ -32,6 +32,17 @@ namespace DigitalNameCard2
         public String Address { get; set; }
         public int DesignNo { get; set; }
         public String ExtraInfo { get; set; }
+        
+        public String toJsonString ()
+        {
+            
+            String s = "{ 'Id':" +Id +", 'Name': '" + Name + "'," + 
+                        "'Title':'" + Title  + "','Website':'" + Website  + 
+                        "','PhoneNumber':"+ PhoneNumber + "','Email':'" + 
+                        Email + "','Address':" + Address + "','DesignNo':" + DesignNo  +"}";
+            //tinggal tambah info
+            return s;
+        }
         /*
 
         public CardInfo(string name, string  title, string website, string phonenumber, string email, string address)

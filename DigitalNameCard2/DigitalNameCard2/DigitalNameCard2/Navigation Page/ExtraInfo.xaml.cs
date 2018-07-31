@@ -26,12 +26,14 @@ namespace DigitalNameCard2
 
             //adding image
             String jsonCurrent = JsonConvert.SerializeObject(current);
-            
+
 
             ////create current barcode
-            String jsonClean = jsonCurrent.Replace('\\', ' ');
-            int count = jsonCurrent.Length;
-            barcodeImage.BarcodeValue = jsonCurrent;
+            //String jsonClean = jsonCurrent.Replace('\\', ' ');
+            //jsonClean = jsonClean.Replace('\\', ' ');
+            //int count = jsonCurrent.Length;
+            String jsonClean = current.toJsonString();
+            barcodeImage.BarcodeValue = jsonClean;
 
 
             List<xInfo> info = JsonConvert.DeserializeObject<List<xInfo>>(User.ExtraInfo);
@@ -85,7 +87,12 @@ namespace DigitalNameCard2
 
         public void Profile(object sender, EventArgs args)
         {
-            Application.Current.MainPage.Navigation.PushModalAsync(new AddCard(current));
+            Application.Current.MainPage.Navigation.PushModalAsync(new ProfilePage(current));
+            resetDB();
+        }
+
+        public void resetDB()
+        {
 
         }
 
@@ -117,7 +124,6 @@ namespace DigitalNameCard2
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     //viewer.IsAnalyzing = false;
-
                     await DisplayAlert("Scanned result : ", result.Text, "OK");
                     //if you got the thing get
                     await Navigation.PopModalAsync();

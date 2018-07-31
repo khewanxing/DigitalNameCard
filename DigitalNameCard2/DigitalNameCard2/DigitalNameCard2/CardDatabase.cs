@@ -10,17 +10,15 @@ namespace DigitalNameCard2
 {
     public class CardDatabase
     {
-        SQLiteConnection dbConnection;
+        public SQLiteConnection dbConnection;
 
         public CardDatabase()
         {
             dbConnection = DependencyService.Get<ISqlLite>().GetConnection();
-            dbConnection.DropTable<CardInfo>();
-            dbConnection.CreateTable<CardInfo>(CreateFlags.None);
-            /*
-           
-            */
-            fillDB();
+           // dbConnection.DropTable<CardInfo>();
+            dbConnection.CreateTable<CardInfo>(CreateFlags.AutoIncPK);
+            
+           // fillDB();
         }
 
 
@@ -91,6 +89,9 @@ namespace DigitalNameCard2
             result = JsonConvert.SerializeObject(xtraInfo);
             c.ExtraInfo = result;
             dbConnection.Insert(c);
+
+            c.Name = "Tom Hardy";
+            dbConnection.Update(c);
         }
 
         public List<CardInfo> GetAllCard()
