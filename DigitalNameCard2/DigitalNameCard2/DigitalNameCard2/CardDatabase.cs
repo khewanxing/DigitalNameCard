@@ -15,10 +15,10 @@ namespace DigitalNameCard2
         public CardDatabase()
         {
             dbConnection = DependencyService.Get<ISqlLite>().GetConnection();
-           // dbConnection.DropTable<CardInfo>();
+            dbConnection.DropTable<CardInfo>();
             dbConnection.CreateTable<CardInfo>(CreateFlags.AutoIncPK);
             
-           // fillDB();
+            fillDB();
         }
 
 
